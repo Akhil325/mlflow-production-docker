@@ -13,15 +13,15 @@
         - name: Ensure Postgres apt repo is present
           apt_repository:
             repo: "deb http://apt.postgresql.org/pub/repos/apt \
-            {{ ansible_distribution_release }}-pgdg main"
+              {{ ansible_distribution_release }}-pgdg main"
           notify: Update apt cache
 
         - name: Install required packages
           apt:
             name:
-                - postgresql
-                - gettext
-                - apache2-utils
+              - postgresql
+              - gettext
+              - apache2-utils
             state: present
             update_cache: true
             cache_valid_time: 600
