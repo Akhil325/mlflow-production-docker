@@ -12,3 +12,4 @@ COPY ./start /start
 RUN sed -i 's/\r$//g' /start && chmod +x /start
 
 ENTRYPOINT [ "/entrypoint" ]
+
