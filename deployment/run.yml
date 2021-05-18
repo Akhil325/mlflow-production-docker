@@ -1,0 +1,19 @@
+---
+- name: Run
+  hosts: mlflow
+  gather_facts: no
+  become: true
+
+  tasks:
+    - name: Create and start services
+      community.docker.docker_compose:
+        project_src: /home/ubuntu/mlflow-production-docker
+        remove_orphans: true
+        build: true
+        files:
+          - production.yml
+      register: output
+
+
+    - ansible.builtin.debug:
+            var: output
