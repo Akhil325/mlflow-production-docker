@@ -1,6 +1,6 @@
 ---
 - name: Provision
-  hosts: mlflow
+  hosts: all
   become: true
 
   roles:

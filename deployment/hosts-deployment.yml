@@ -9,4 +9,4 @@ all:
       children:
         mlflow:
           hosts:
-            localhost:
+            <domain/ip>:
