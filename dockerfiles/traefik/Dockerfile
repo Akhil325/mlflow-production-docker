@@ -16,6 +16,4 @@ RUN addgroup --system traefik \
 
 EXPOSE 8080/tcp 8443/tcp
 
-VOLUME /etc/traefik/acme/
-
 USER traefik

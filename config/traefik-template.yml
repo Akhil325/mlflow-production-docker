@@ -4,7 +4,7 @@ log:
 
 entryPoints:
   web:
-    address: ":8080"
+    address: ":8081"
 
   web-secure:
     address: ":8443"
@@ -91,3 +91,4 @@ providers:
   file:
     filename: /etc/traefik/traefik.yml
     watch: true
+

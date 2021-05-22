@@ -18,7 +18,7 @@ services:
       - ./config/.htpasswd:/etc/traefik/.htpasswd:ro
       - ./config/traefik.yml:/etc/traefik/traefik.yml:ro
     ports:
-      - "0.0.0.0:80:8080"
+      - "0.0.0.0:80:8081"
       - "0.0.0.0:443:8443"
 
 
