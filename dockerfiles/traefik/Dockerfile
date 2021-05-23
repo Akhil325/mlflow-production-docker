@@ -14,6 +14,6 @@ RUN addgroup --system traefik \
     && chmod 0600 acme/acme.json \
     && chown -R traefik:traefik .
 
-EXPOSE 8080/tcp 8443/tcp
+EXPOSE 8081/tcp 8443/tcp
 
 USER traefik
