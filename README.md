@@ -99,5 +99,5 @@ mkcert -cert-file config/certs/local-cert.pem -key-file config/certs/local-key.p
 ```
 
 - Ensure that you replace the `tls` setting in the dynamic config
-  file for `web-secure-router` (`config/dynamc/config.yml`) - Use `tls: {}`
-- Uncomment tls certificate definition in `config/dynamc/tls.yml` and verify that the path to the certificates is correct.
+  file for `web-secure-router` (`config/dynamic/config.yml`) - Use `tls: {}`
+- Uncomment tls certificate definition in `config/dynamic/tls.yml` and verify that the path to the certificates is correct.
