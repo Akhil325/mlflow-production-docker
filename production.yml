@@ -15,6 +15,7 @@ services:
       - traefik_acme_data:/etc/traefik/acme/
       - ./config/.htpasswd:/etc/traefik/.htpasswd:ro
       - ./config/traefik.yml:/etc/traefik/traefik.yml:ro
+       - ./config/dynamic:/etc/traefik/config:ro
     ports:
       - "0.0.0.0:80:8081"
       - "0.0.0.0:443:8443"
