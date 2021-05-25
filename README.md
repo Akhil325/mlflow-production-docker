@@ -83,3 +83,21 @@ This create ssh tunneling allowing you to connect to tracking database with the 
 NOTE: The "private.pem" key here is the one used to ssh into the server.
 
 For further information, look [here](https://aws.amazon.com/premiumsupport/knowledge-center/rds-connect-using-bastion-host-linux/`).
+
+## Deploying locally
+
+In order to run this with https locally or without a domain name - Use self generated certificates:
+
+From the root of the project, generate certificates using [mkcert](https://github.com/FiloSottile/mkcert) :
+
+```bash
+# If it's the firt install of mkcert, run
+mkcert -install
+
+# Generate certificate for domain localhost "*.localhost", <ip_address>
+mkcert -cert-file config/certs/local-cert.pem -key-file config/certs/local-key.pem "localhost" "*.localhost" 127.0.0.1
+```
+
+- Ensure that you replace the `tls` setting in the dynamic config
+  file for `web-secure-router` (`config/dynamc/config.yml`) - Use `tls: {}`
+- Uncomment tls certificate definition in `config/dynamc/tls.yml` and verify that the path to the certificates is correct.
