@@ -1,0 +1,25 @@
+---
+log:
+  level: DEBUG
+
+entryPoints:
+  web:
+    address: ":8081"
+
+  web-secure:
+    address: ":8443"
+
+
+global:
+  # https://doc.traefik.io/traefik/contributing/data-collection/
+  sendAnonymousUsage: true
+
+
+providers:
+  # https://doc.traefik.io/traefik/master/providers/file/
+  file:
+    directory: /etc/traefik/config/
+    watch: true
+
+
+

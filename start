@@ -5,7 +5,10 @@ set -o nounset
 set -o pipefail
 
 DB_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-mlflow db upgrade $DB_URI
+
+# || true is currently required as this command fails on a newly created database - addition of
+# this enables automated deployment - Find better fix if possible and this will not catch all problems
+mlflow db upgrade $DB_URI || true
 
 mlflow server \
     --backend-store-uri ${DB_URI} \

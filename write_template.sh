@@ -15,4 +15,4 @@ set -euo allexport
 # obfuscate server name unless provided explicitly
 SERVER_NAME="${SERVER_NAME:-$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 10 ; echo '')}"
 
-envsubst < config/traefik-template.yml > config/traefik.yml
+envsubst < config/traefik-template.yml > config/dynamic/config.yml

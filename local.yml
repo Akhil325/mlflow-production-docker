@@ -14,13 +14,16 @@ services:
     image: mlflow_production_traefik
     restart: always
     volumes:
-      - traefik_acme_data:/etc/traefik/acme/
+      # - traefik_acme_data:/etc/traefik/acme/
       - ./config/.htpasswd:/etc/traefik/.htpasswd:ro
       - ./config/traefik.yml:/etc/traefik/traefik.yml:ro
+      # Map the dynamic conf into the container
+      - ./config/dynamic:/etc/traefik/config:ro
+      # Map the certificats into the container
+      - ./config/certs:/etc/certs:ro
     ports:
-      - "0.0.0.0:80:8080"
+      - "0.0.0.0:80:8081"
       - "0.0.0.0:443:8443"
-
 
   mlflow:
     build:
