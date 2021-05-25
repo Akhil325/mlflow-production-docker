@@ -1,13 +1,13 @@
 ---
-# certificatesResolvers:
-#   letsencrypt:
-#     # https://doc.traefik.io/traefik/master/https/acme/#lets-encrypt
-#     acme:
-#       email: ${EMAIL_ADDRESS}
-#       storage: /etc/traefik/acme/acme.json
-#       # https://doc.traefik.io/traefik/master/https/acme/#httpchallenge
-#       httpChallenge:
-#         entryPoint: web
+certificatesResolvers:
+  letsencrypt:
+    # https://doc.traefik.io/traefik/master/https/acme/#lets-encrypt
+    acme:
+      email: ${EMAIL_ADDRESS}
+      storage: /etc/traefik/acme/acme.json
+      # https://doc.traefik.io/traefik/master/https/acme/#httpchallenge
+      httpChallenge:
+        entryPoint: web
 
 http:
   routers:
@@ -28,10 +28,11 @@ http:
         - authorisation
         - security-headers
       service: ${SERVICE_NAME}
-      tls: {}
-    #   tls:
-    #     # https://doc.traefik.io/traefik/master/routing/routers/#certresolver
-    #     certResolver: letsencrypt
+      # Use below if using https without a cert resolver
+      # tls: {}
+      tls:
+        # https://doc.traefik.io/traefik/master/routing/routers/#certresolver
+        certResolver: letsencrypt
 
   middlewares:
     redirect:
